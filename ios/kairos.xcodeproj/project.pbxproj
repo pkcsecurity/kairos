@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -35,12 +36,15 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* kairosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kairosTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		817851440E264612AF8B4852 /* libLRDRCTSimpleToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 264E5082E2F346358700E613 /* libLRDRCTSimpleToast.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B93F7CA6E40B4E5D95344C51 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D40C9EB8FD044C182D4C2CE /* libRNSVG-tvOS.a */; };
+		CF875B21E9324FDD98ECD9C5 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A42565419E74A02B71CE159 /* libRNCamera.a */; };
+		E4867EA522E7412DAF763595 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244D700023E64C0686709C8F /* libRNSVG.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		E4867EA522E7412DAF763595 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244D700023E64C0686709C8F /* libRNSVG.a */; };
-		B93F7CA6E40B4E5D95344C51 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D40C9EB8FD044C182D4C2CE /* libRNSVG-tvOS.a */; };
+		FCB022F4924740C3B2DEE9AC /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F3BEA1094F4258ABCFB19F /* libRNAudio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +321,41 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
+		EE161A9822B2AA6400C4BBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = RNSVG;
+		};
+		EE161A9A22B2AA6400C4BBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 94DDAC5C1F3D024300EED511;
+			remoteInfo = "RNSVG-tvOS";
+		};
+		EE161AD422B2AD1900C4BBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A14FA072E847418D959CDE /* LRDRCTSimpleToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
+			remoteInfo = LRDRCTSimpleToast;
+		};
+		EE161B0F22B2B84500C4BBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF739901A31746589570BEA4 /* RNCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNCamera;
+		};
+		EE161B4C22B2BD0200C4BBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F76D9334F924EF0B326203A /* RNAudio.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 42F559BA1CFC90C400DC3F84;
+			remoteInfo = RNAudio;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -329,6 +368,7 @@
 		00E356EE1AD99517003FC87E /* kairosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kairosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* kairosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kairosTests.m; sourceTree = "<group>"; };
+		07A14FA072E847418D959CDE /* LRDRCTSimpleToast.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = LRDRCTSimpleToast.xcodeproj; path = "../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* kairos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kairos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,18 +379,24 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kairos/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kairos/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		244D700023E64C0686709C8F /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
+		264E5082E2F346358700E613 /* libLRDRCTSimpleToast.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libLRDRCTSimpleToast.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* kairos-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kairos-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* kairos-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kairos-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F76D9334F924EF0B326203A /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "../node_modules/react-native-audio/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
+		4A42565419E74A02B71CE159 /* libRNCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCamera.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		61F3BEA1094F4258ABCFB19F /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
+		6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9D40C9EB8FD044C182D4C2CE /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */ = {isa = PBXFileReference; name = "RNSVG.xcodeproj"; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		244D700023E64C0686709C8F /* libRNSVG.a */ = {isa = PBXFileReference; name = "libRNSVG.a"; path = "libRNSVG.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		9D40C9EB8FD044C182D4C2CE /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; name = "libRNSVG-tvOS.a"; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		EE161A9C22B2ABEF00C4BBF6 /* kairos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = kairos.entitlements; path = kairos/kairos.entitlements; sourceTree = "<group>"; };
+		FF739901A31746589570BEA4 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +426,9 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				E4867EA522E7412DAF763595 /* libRNSVG.a in Frameworks */,
+				817851440E264612AF8B4852 /* libLRDRCTSimpleToast.a in Frameworks */,
+				CF875B21E9324FDD98ECD9C5 /* libRNCamera.a in Frameworks */,
+				FCB022F4924740C3B2DEE9AC /* libRNAudio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +542,7 @@
 		13B07FAE1A68108700A75B9A /* kairos */ = {
 			isa = PBXGroup;
 			children = (
+				EE161A9C22B2ABEF00C4BBF6 /* kairos.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -571,6 +621,9 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */,
+				07A14FA072E847418D959CDE /* LRDRCTSimpleToast.xcodeproj */,
+				FF739901A31746589570BEA4 /* RNCamera.xcodeproj */,
+				2F76D9334F924EF0B326203A /* RNAudio.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -592,6 +645,7 @@
 				00E356EF1AD99517003FC87E /* kairosTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				EE161A6E22B2AA6200C4BBF6 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -614,6 +668,51 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE161A6E22B2AA6200C4BBF6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				244D700023E64C0686709C8F /* libRNSVG.a */,
+				9D40C9EB8FD044C182D4C2CE /* libRNSVG-tvOS.a */,
+				264E5082E2F346358700E613 /* libLRDRCTSimpleToast.a */,
+				4A42565419E74A02B71CE159 /* libRNCamera.a */,
+				61F3BEA1094F4258ABCFB19F /* libRNAudio.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		EE161A9422B2AA6400C4BBF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE161A9922B2AA6400C4BBF6 /* libRNSVG.a */,
+				EE161A9B22B2AA6400C4BBF6 /* libRNSVG-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE161AD122B2AD1900C4BBF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE161AD522B2AD1900C4BBF6 /* libLRDRCTSimpleToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE161B0C22B2B84400C4BBF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE161B1022B2B84500C4BBF6 /* libRNCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE161B4922B2BD0000C4BBF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE161B4D22B2BD0200C4BBF6 /* libRNAudio.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -709,6 +808,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = H9848XLUYB;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -734,6 +838,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = EE161AD122B2AD1900C4BBF6 /* Products */;
+					ProjectRef = 07A14FA072E847418D959CDE /* LRDRCTSimpleToast.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -781,6 +889,18 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = EE161B4922B2BD0000C4BBF6 /* Products */;
+					ProjectRef = 2F76D9334F924EF0B326203A /* RNAudio.xcodeproj */;
+				},
+				{
+					ProductGroup = EE161B0C22B2B84400C4BBF6 /* Products */;
+					ProjectRef = FF739901A31746589570BEA4 /* RNCamera.xcodeproj */;
+				},
+				{
+					ProductGroup = EE161A9422B2AA6400C4BBF6 /* Products */;
+					ProjectRef = 6AB14497DCEE41578873EF2A /* RNSVG.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1053,6 +1173,41 @@
 			remoteRef = EE0DC26822B2A1F1001790DA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		EE161A9922B2AA6400C4BBF6 /* libRNSVG.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSVG.a;
+			remoteRef = EE161A9822B2AA6400C4BBF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE161A9B22B2AA6400C4BBF6 /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = EE161A9A22B2AA6400C4BBF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE161AD522B2AD1900C4BBF6 /* libLRDRCTSimpleToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLRDRCTSimpleToast.a;
+			remoteRef = EE161AD422B2AD1900C4BBF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE161B1022B2B84500C4BBF6 /* libRNCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCamera.a;
+			remoteRef = EE161B0F22B2B84500C4BBF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE161B4D22B2BD0200C4BBF6 /* libRNAudio.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNAudio.a;
+			remoteRef = EE161B4C22B2BD0200C4BBF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1192,9 +1347,24 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = kairosTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1202,15 +1372,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kairos.app/kairos";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Debug;
 		};
@@ -1220,9 +1381,24 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = H9848XLUYB;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = kairosTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1230,15 +1406,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kairos.app/kairos";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Release;
 		};
@@ -1249,6 +1416,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = H9848XLUYB;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1259,10 +1433,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.kairos2;
 				PRODUCT_NAME = kairos;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Debug;
 		};
@@ -1272,6 +1442,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H9848XLUYB;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = kairos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1282,10 +1459,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.kairos2;
 				PRODUCT_NAME = kairos;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Release;
 		};
@@ -1301,8 +1474,23 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = "kairos-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1312,15 +1500,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Debug;
 		};
@@ -1336,8 +1515,23 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = "kairos-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1347,15 +1541,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Release;
 		};
@@ -1370,8 +1555,23 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = "kairos-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1381,15 +1581,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kairos-tvOS.app/kairos-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Debug;
 		};
@@ -1404,8 +1595,23 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+				);
 				INFOPLIST_FILE = "kairos-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1415,15 +1621,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kairos-tvOS.app/kairos-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
-				);
 			};
 			name = Release;
 		};

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import {
   TouchableOpacity,
   Button,
@@ -10,20 +10,15 @@ import {
 } from 'react-native';
 import {colors} from './Css';
 import * as _ from 'lodash';
+import Toast from 'react-native-simple-toast';
+import LoginPage from './Login';
+import Landing from './Landing';
 
-const LoginScreen = () => {
-  const [fontState, setFontState] = useState(false);
+import {RNCamera} from 'react-native-camera';
+import {AudioRecorder, AudioUtils} from 'react-native-audio';
 
-  return fontState ? (
-    <View style={styles.container}>
-      <Image style={styles.logo} source={require('./assets/logo.png')} />
-      <TextInput style={styles.input} placeholder="Username" type="email" />
-      <TextInput style={styles.input} placeholder="Password" type="password" />
-      <Button onPress={() => false} title="Login" />
-    </View>
-  ) : (
-    <View />
-  );
+const notify = msg => {
+  Toast.showWithGravity(msg, Toast.SHORT, Toast.TOP);
 };
 
 const styles = StyleSheet.create({
@@ -60,9 +55,9 @@ const styles = StyleSheet.create({
 const Avatar = ({source}) => {
   const style = StyleSheet.create({
     avatar: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
+      width: 80,
+      height: 80,
+      borderRadius: 40,
     },
   });
 
@@ -127,7 +122,13 @@ const Page = () => {
       </View>
       <View style={style.nav} />
       <View style={style.floating}>
-        <TouchableOpacity style={style.addButton}>
+        <TouchableOpacity
+          onPress={() =>
+            notify(
+              'You have received an updated message from so and so regarding such and such.',
+            )
+          }
+          style={style.addButton}>
           <Text style={style.text}>+</Text>
         </TouchableOpacity>
       </View>
@@ -135,8 +136,123 @@ const Page = () => {
   );
 };
 
+const Camera = () => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      backgroundColor: 'black',
+    },
+    preview: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    capture: {
+      flex: 0,
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      padding: 15,
+      paddingHorizontal: 20,
+      alignSelf: 'center',
+      margin: 20,
+    },
+  });
+
+  const cameraRef = useRef(null);
+
+  takePicture = async () => {
+    const camera = cameraRef.current;
+    if (camera) {
+      const options = {quality: 0.5, exif: true};
+      const data = await camera.takePictureAsync(options);
+      console.log(data.uri);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        ref={cameraRef}
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
+        flashMode={RNCamera.Constants.FlashMode.on}
+      />
+      <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
+        <TouchableOpacity onPress={takePicture} style={styles.capture}>
+          <Text style={{fontSize: 14}}> SNAP </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+/*
+const Mic = () => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      backgroundColor: 'black',
+    },
+    preview: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    capture: {
+      flex: 0,
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      padding: 15,
+      paddingHorizontal: 20,
+      alignSelf: 'center',
+      margin: 20,
+    },
+  });
+
+  const audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
+
+  const startAudio = async () => {
+    AudioRecorder.prepareRecordingAtPath(audioPath, {
+      SampleRate: 22050,
+      Channels: 1,
+      AudioQuality: 'Low',
+      AudioEncoding: 'aac',
+      AudioEncodingBitRate: 32000,
+    });
+
+    await AudioRecorder.startRecording();
+  };
+
+  const endAudio = async () => {
+    const filePath = await AudioRecorder.stopRecording();
+    console.log(AudioRecorder.stopRecording);
+    console.log('\n\n\n\n\n' + filePath);
+  };
+
+  useEffect(() => {
+    AudioRecorder.requestAuthorization();
+  });
+
+  return (
+    <View style={styles.container}>
+      <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
+        <TouchableOpacity
+          onPressIn={startAudio}
+          onPressOut={endAudio}
+          style={styles.capture}>
+          <Text style={{fontSize: 14}}> SNAP </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+*/
+
 const App = () => {
-  return <Page />;
+  // return <LoginPage onSubmit={() => notify('logged in')} />;
+  return <Landing />;
 };
 
 module.exports = App;
