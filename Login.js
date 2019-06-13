@@ -4,14 +4,16 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
+  KeyboardAvoidingView,
   Image,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import {colors} from './Css';
+import {colors, gradients} from './Css';
 import * as _ from 'lodash';
 import Toast from 'react-native-simple-toast';
+import LinearGradient from 'react-native-linear-gradient';
 
 const LoginPage = ({onSubmit}) => {
   const ref = useRef(null);
@@ -19,12 +21,19 @@ const LoginPage = ({onSubmit}) => {
   const [loading, setLoading] = useState(false);
 
   const styles = StyleSheet.create({
-    container: {
+    gradient: {
       flex: 1,
-      backgroundColor: colors.white,
+      backgroundColor: colors.gradient,
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 10,
+    },
+    view: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 30,
+      width: '100%',
+      height: '100%',
     },
     text: {
       color: colors.black,
@@ -32,66 +41,118 @@ const LoginPage = ({onSubmit}) => {
       lineHeight: 34,
     },
     logo: {
-      width: '60%',
-      height: 60,
+      width: 150,
+      height: 150,
       marginBottom: 20,
     },
     input: {
-      backgroundColor: '#fafafa',
-      color: colors.black,
-      width: '80%',
-      height: 40,
+      backgroundColor: 'rgba(255,255,255,0.4)',
+      color: '#ffffff',
+      width: '100%',
+      padding: 20,
       marginTop: 5,
       marginBottom: 5,
-      padding: 5,
+      fontSize: 16,
+      borderRadius: 5,
+      textTransform: 'uppercase',
+    },
+    buttons: {
+      height: 60,
+      marginBottom: 20,
+      width: '50%',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+    },
+    button: {
+      color: colors.white,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+      fontWeight: '700',
+      fontSize: 14,
+    },
+    continue: {
+      fontSize: 20,
+      width: '100%',
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      padding: 20,
+      marginTop: 50,
+    },
+    continueText: {
+      textAlign: 'center',
+      fontWeight: '700',
+      color: colors.pri,
     },
   });
 
   const onNext = () => {
     ref.current.focus();
   };
+  const onSubmitWithFinished = () => {
+    const {geolocation} = navigator;
+    geolocation.requestAuthorization();
+    geolocation.getCurrentPosition(
+      x => console.log(x),
+      err => console.error(err),
+      {
+        enableHighAccuracy: true,
+      },
+    );
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      onSubmit();
+    }, 1000);
+  };
 
   const Login = () => {
     return (
-      <View style={styles.container}>
-        <Image style={styles.logo} source={require('./assets/logo.png')} />
-        <TextInput
-          onSubmitEditing={onNext}
-          style={styles.input}
-          placeholder="Username"
-          type="email"
-          keyboardType="email-address"
-          textContentType="username"
-        />
-        <TextInput
-          ref={ref}
-          style={styles.input}
-          placeholder="Password"
-          type="password"
-          autoCompleteType="password"
-          secureTextEntry={true}
-          textContentType="password"
-          onSubmitEditing={onSubmit}
-        />
-        <Button
-          onPress={() => {
-            setLoading(true);
-            setTimeout(() => {
-              setLoading(false);
-              onSubmit();
-            }, 1000);
-          }}
-          title="Login"
-        />
-      </View>
+      <LinearGradient colors={gradients.purple} style={styles.gradient}>
+        <KeyboardAvoidingView style={styles.view} behavior="padding" enabled>
+          <Image
+            style={styles.logo}
+            source={require('./assets/logo_sec.png')}
+          />
+          <View style={styles.buttons}>
+            <Text style={styles.button}>Sign In</Text>
+            <Text style={styles.button}>Sign Up</Text>
+          </View>
+          <TextInput
+            onSubmitEditing={onNext}
+            style={styles.input}
+            placeholder="USERNAME"
+            type="email"
+            keyboardType="email-address"
+            placeholderTextColor="#ddd"
+            textContentType="username"
+          />
+          <TextInput
+            ref={ref}
+            style={styles.input}
+            placeholder="PASSWORD"
+            type="password"
+            autoCompleteType="password"
+            secureTextEntry={true}
+            placeholderTextColor="#ddd"
+            textContentType="password"
+            onSubmitEditing={onSubmitWithFinished}
+          />
+          <TouchableOpacity
+            style={styles.continue}
+            onPress={onSubmitWithFinished}>
+            <Text style={styles.continueText}>Continue</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      </LinearGradient>
     );
   };
 
   const Loading = () => {
     return (
-      <View style={styles.container}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
+      <LinearGradient colors={gradients.purple} style={styles.gradient}>
+        <ActivityIndicator size="large" color="#ffffff" />
+      </LinearGradient>
     );
   };
 

@@ -12,9 +12,11 @@
     "react-native": "0.59.9",
     "react-native-audio": "^4.3.0",
     "react-native-camera": "^2.10.2",
+    "react-native-linear-gradient": "^2.5.4",
     "react-native-simple-toast": "0.0.8",
-    "react-native-svg": "^6.2.1",
-    "react-native-svg-charts": "^5.2.0"
+    "react-native-svg": "6.5.3",
+    "react-native-svg-charts": "^5.2.0",
+    "victory-native": "^32.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",

@@ -1,11 +1,12 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {
-  TouchableOpacity,
   Button,
-  TextInput,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
+  TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {colors} from './Css';
@@ -13,12 +14,13 @@ import * as _ from 'lodash';
 import Toast from 'react-native-simple-toast';
 import LoginPage from './Login';
 import Landing from './Landing';
+import Dashboard from './Dashboard';
 
 import {RNCamera} from 'react-native-camera';
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
 
 const notify = msg => {
-  Toast.showWithGravity(msg, Toast.SHORT, Toast.TOP);
+  Toast.showWithGravity(msg, Toast.SHORT, Toast.CENTER);
 };
 
 const styles = StyleSheet.create({
@@ -63,79 +65,6 @@ const Avatar = ({source}) => {
 
   return <Image style={style.avatar} source={source} />;
 };
-
-const Page = () => {
-  const style = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: colors.white,
-    },
-    body: {
-      height: '90%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: colors.white,
-    },
-    nav: {
-      height: '10%',
-      backgroundColor: colors.pri,
-    },
-    addButton: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
-      backgroundColor: colors.tri,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-
-      elevation: 5,
-    },
-    text: {
-      height: 50,
-      width: 50,
-      lineHeight: 46,
-      textAlign: 'center',
-      color: colors.white,
-      fontSize: 25,
-    },
-    floating: {
-      position: 'absolute',
-      bottom: '7%',
-      left: '43%',
-    },
-    avatar: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
-    },
-  });
-
-  return (
-    <View style={style.container}>
-      <View style={style.body}>
-        <Avatar source={require('./assets/avatars/2.jpg')} />
-      </View>
-      <View style={style.nav} />
-      <View style={style.floating}>
-        <TouchableOpacity
-          onPress={() =>
-            notify(
-              'You have received an updated message from so and so regarding such and such.',
-            )
-          }
-          style={style.addButton}>
-          <Text style={style.text}>+</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
-
 const Camera = () => {
   const styles = StyleSheet.create({
     container: {
@@ -251,8 +180,16 @@ const Mic = () => {
 */
 
 const App = () => {
+  const [page, setPage] = useState('dash');
   // return <LoginPage onSubmit={() => notify('logged in')} />;
-  return <Landing />;
+  switch (page) {
+    case 'landing':
+      return <Landing onJoin={() => setPage('signup')} />;
+    case 'signup':
+      return <LoginPage onSubmit={() => notify('done')} />;
+    case 'dash':
+      return <Dashboard />;
+  }
 };
 
 module.exports = App;

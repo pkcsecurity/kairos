@@ -61,5 +61,7 @@
 	<string>I need your mic.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>I want to add stuff to your photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>I want to know where you live.</string>
 </dict>
 </plist>
