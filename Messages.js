@@ -80,13 +80,14 @@ const Row = ({icon, title}) => {
   );
 };
 
-const Messages = ({onImport}) => {
+const Messages = ({onBack, onImport}) => {
   return (
     <View>
       <Nav
         title="Messages"
         sourceLeft={require('./assets/back.png')}
         sourceRight={require('./assets/plus.png')}
+        onLeft={onBack}
         onRight={onImport}
       />
       <View style={{paddingHorizontal: 40}}>

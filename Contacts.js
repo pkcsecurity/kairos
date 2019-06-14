@@ -102,7 +102,7 @@ const Contact = ({source, name, time, status, onYounis}) => {
   );
 };
 
-const Contacts = ({onCreateNew, onYounis}) => {
+const Contacts = ({onBack, onCreateNew, onYounis}) => {
   const [enabled, setEnabled] = useState('alphabetize');
 
   const pressHandler = s => () => setEnabled(s);
@@ -222,7 +222,11 @@ const Contacts = ({onCreateNew, onYounis}) => {
   return (
     <View style={{flex: 1}}>
       <FloatingButton onPressPrimary={onCreateNew} />
-      <Nav title="Contacts" sourceLeft={require('./assets/back.png')} />
+      <Nav
+        title="Contacts"
+        onLeft={onBack}
+        sourceLeft={require('./assets/back.png')}
+      />
       <OmniSearch />
       <View style={{flexDirection: 'row', marginHorizontal: 20}}>
         <Pill

@@ -60,7 +60,7 @@ const EventRow = ({amount, unit, type, title, message}) => {
   );
 };
 
-const Profile = ({onMic, mic, onEdit, onCamera, photo}) => {
+const Profile = ({onBack, onMic, mic, onEdit, onCamera, photo}) => {
   const styles = StyleSheet.create({
     title: {
       fontSize: 30,
@@ -74,6 +74,7 @@ const Profile = ({onMic, mic, onEdit, onCamera, photo}) => {
     <View style={{flex: 1}}>
       <Nav
         title=""
+        onLeft={onBack}
         sourceLeft={require('./assets/back.png')}
         sourceRight={require('./assets/more.png')}
       />

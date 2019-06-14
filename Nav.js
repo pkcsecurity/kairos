@@ -26,11 +26,7 @@ const Nav = ({title, sourceLeft, sourceRight, onLeft, onRight}) => {
       fontWeight: '700',
       fontFamily: 'Avenir',
     },
-    leftMenu: {
-      height: 30,
-      width: 30,
-    },
-    rightMenu: {
+    button: {
       height: 30,
       width: 30,
     },
@@ -40,11 +36,11 @@ const Nav = ({title, sourceLeft, sourceRight, onLeft, onRight}) => {
   const sourceRightOpt = sourceRight || require('./assets/more.png');
   return (
     <View style={style.container}>
-      <TouchableOpacity onPress={onLeft}>
+      <TouchableOpacity style={style.button} onPress={onLeft}>
         <Image source={sourceLeftOpt} />
       </TouchableOpacity>
       <Text style={style.title}>{title}</Text>
-      <TouchableOpacity onPress={onRight}>
+      <TouchableOpacity style={style.button} onPress={onRight}>
         <Image source={sourceRightOpt} />
       </TouchableOpacity>
     </View>

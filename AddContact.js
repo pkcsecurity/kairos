@@ -50,6 +50,7 @@ const ContactRow = ({
           returnKeyLabel={nextRef ? 'Next' : 'Save'}
           returnKeyType={nextRef ? 'next' : 'done'}
           ref={thisRef}
+          autoCorrect={false}
           style={{height: 30, fontSize: 20, color: disabled ? '#aaa' : 'black'}}
           value={input}
           onChangeText={t => {
@@ -88,7 +89,7 @@ const Coordinates = () => {
         <Text style={{fontSize: 20, color: '#aaa'}}>Location</Text>
       </View>
       <View style={{flex: 7}}>
-        <Text>
+        <Text style={{color: '#aaa'}}>
           {location.coords
             ? `${location.coords.latitude}, ${location.coords.longitude}`
             : ''}
@@ -228,6 +229,7 @@ const AddContact = ({onAdd}) => {
           value="France"
           onSubmit={onSubmit}
         />
+        <Coordinates />
       </View>
     </KeyboardAvoidingView>
   );

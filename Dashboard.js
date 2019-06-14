@@ -192,7 +192,7 @@ const SparkRow = ({data, title, value, stroke, onPress}) => {
   );
 };
 
-const Dashboard = ({onMenu}) => {
+const Dashboard = ({onMenu, onPeople}) => {
   const style = StyleSheet.create({
     container: {
       flex: 1,
@@ -237,7 +237,7 @@ const Dashboard = ({onMenu}) => {
             title="People"
             value="339"
             stroke={colors.purple}
-            onPress={() => notify('people')}
+            onPress={onPeople}
           />
           <SparkRow
             data={reviewData}

@@ -169,14 +169,25 @@ const App = () => {
     case 'signup':
       return <LoginPage onSubmit={() => setPage('dash')} />;
     case 'dash':
-      return <Dashboard onMenu={() => setPage('messages')} />;
+      return (
+        <Dashboard
+          onPeople={() => setPage('contacts')}
+          onMenu={() => setPage('messages')}
+        />
+      );
     case 'messages':
-      return <Messages onImport={() => setPage('selector')} />;
+      return (
+        <Messages
+          onBack={() => setPage('dash')}
+          onImport={() => setPage('selector')}
+        />
+      );
     case 'addContact':
       return <AddContact onAdd={() => setPage('contacts')} />;
     case 'contacts':
       return (
         <Contacts
+          onBack={() => setPage('dash')}
           onYounis={() => setPage('profile')}
           onCreateNew={() => setPage('addContact')}
         />
@@ -188,6 +199,7 @@ const App = () => {
         <Profile
           photo={photo}
           onCamera={() => setPage('camera')}
+          onBack={() => setPage('contacts')}
           mic={mic}
           onMic={t => setMic(t[0])}
         />
@@ -203,5 +215,7 @@ const App = () => {
       );
   }
 };
+
+console.disableYellowBox = true;
 
 module.exports = App;
