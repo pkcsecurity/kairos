@@ -51,7 +51,7 @@ const AddContact = () => {
   };
 
   const onPress = () => {
-    CameraRoll.getPhotos({first: 10, assetType: 'Photos'}).then((res) => setPhoto(_.shuffle(res.edges)[0]));
+    CameraRoll.getPhotos({first: 1, assetType: 'Photos'}).then((res) => setPhoto(_.shuffle(res.edges)[0]));
   };
 
   return (

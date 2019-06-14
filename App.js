@@ -16,6 +16,7 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import Messages from './Messages';
 import AddContact from './AddContact';
+import Contacts from './Contacts';
 
 import {RNCamera} from 'react-native-camera';
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
@@ -181,27 +182,29 @@ const Mic = () => {
 */
 
 const App = () => {
-  const [page, setPage] = useState('addContact');
-  PushNotification.configure({
-    onRegister: function(token) {
-      console.log('TOKEN:', token);
-    },
-    onNotification: function(notification) {
-      console.log('NOTIFICATION:', notification);
-      notification.finish(PushNotificationIOS.FetchResult.NoData);
-    },
+  const [page, setPage] = useState('contacts');
 
-    permissions: {
-      alert: true,
-      badge: true,
-      sound: true,
-    },
+  useEffect(() => {
+    PushNotification.configure({
+      onRegister: function(token) {
+        console.log('TOKEN:', token);
+      },
+      onNotification: function(notification) {
+        console.log('NOTIFICATION:', notification);
+        notification.finish(PushNotificationIOS.FetchResult.NoData);
+      },
 
-    popInitialNotification: true,
-    requestPermissions: true,
+      permissions: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
+
+      popInitialNotification: true,
+      requestPermissions: true,
+    });
   });
 
-  // return <LoginPage onSubmit={() => notify('logged in')} />;
   switch (page) {
     case 'landing':
       return <Landing onJoin={() => setPage('signup')} />;
@@ -213,6 +216,8 @@ const App = () => {
       return <Messages />;
     case 'addContact':
       return <AddContact />;
+    case 'contacts':
+      return <Contacts />;
   }
 };
 
