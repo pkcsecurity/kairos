@@ -17,6 +17,7 @@ import _ from 'lodash';
 import {position} from './Geolocation';
 
 const ContactRow = ({
+  onChange,
   name,
   value,
   thisRef,
@@ -45,14 +46,16 @@ const ContactRow = ({
       <View style={{flex: 7}}>
         <TextInput
           keyboardType={keyboardType || 'default'}
-          autoCorrect={false}
           textContentType={type || 'none'}
           returnKeyLabel={nextRef ? 'Next' : 'Save'}
           returnKeyType={nextRef ? 'next' : 'done'}
           ref={thisRef}
           style={{height: 30, fontSize: 20, color: disabled ? '#aaa' : 'black'}}
           value={input}
-          onChangeText={setInput}
+          onChangeText={t => {
+            setInput(t);
+            onChange(t);
+          }}
           onSubmitEditing={() =>
             nextRef ? nextRef.current.focus() : onSubmit()
           }
@@ -102,26 +105,65 @@ const AddContact = ({onAdd}) => {
 
   const [saved, setSaved] = useState(false);
   const [photo, setPhoto] = useState(false);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [country, setCountry] = useState('');
+  const [email, setEmail] = useState('');
 
   const onSubmit = () => {
     setSaved(true);
     notify('This contact has been uploaded.');
-    setTimeout(onAdd, 2000);
+
+    var data = JSON.stringify({
+      title: name,
+      contact_phone: [
+        {
+          value: phone,
+        },
+      ],
+      contact_email: [
+        {
+          value: email,
+        },
+      ],
+      contact_address: [
+        {
+          value: country,
+        },
+      ],
+    });
+    console.log(data);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener('readystatechange', function() {
+      if (this.readyState === 4) {
+      }
+      onAdd();
+    });
+
+    const bearer =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvcHJhZ3Vla2Fpcm9zLndwZW5naW5lLmNvbSIsImlhdCI6MTU2MDQ4Mzc5MSwibmJmIjoxNTYwNDgzNzkxLCJleHAiOjE1NjEwODg1OTEsImRhdGEiOnsidXNlciI6eyJpZCI6IjIifX19.BFO8IuM-WxVnxaB4pTIz-H_oSWF4a9jSgcMiAZh3eZ0';
+
+    xhr.open(
+      'POST',
+      'https://praguekairos.wpengine.com/wp-json/dt-posts/v2/contacts/',
+    );
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Authorization', 'Bearer ' + bearer);
+    xhr.send(data);
   };
 
   const onPress = () => {
-    CameraRoll.getPhotos({
-      first: 10,
-      assetType: 'Photos',
-      mimeTypes: ['image/jpeg'],
-    }).then(res => setPhoto(res.edges[7]));
+    CameraRoll.getPhotos({first: 1, assetType: 'Photos'}).then(res =>
+      setPhoto(_.shuffle(res.edges)[0]),
+    );
   };
 
   return (
     <KeyboardAvoidingView behavior="position">
       <Nav
         title="Add contact"
-        onLeft={onAdd}
         sourceLeft={require('./assets/back.png')}
         sourceRight={require('./assets/more.png')}
       />
@@ -151,21 +193,24 @@ const AddContact = ({onAdd}) => {
           Contact
         </Text>
         <ContactRow
+          onChange={setName}
           disabled={saved}
           nextRef={emailRef}
           name="Name"
           value="Jordan Halvorsen"
         />
         <ContactRow
+          onChange={setEmail}
           disabled={saved}
           keyboardType="email-address"
-          type="emailAddress"
+          type="email"
           thisRef={emailRef}
           nextRef={phoneRef}
           name="Email"
           value="jordan@vrasa.com"
         />
         <ContactRow
+          onChange={setPhone}
           disabled={saved}
           keyboardType="phone-pad"
           type="telephoneNumber"
@@ -175,6 +220,7 @@ const AddContact = ({onAdd}) => {
           value="+1 615 538-8532"
         />
         <ContactRow
+          onChange={setCountry}
           disabled={saved}
           type="countryName"
           thisRef={countryRef}
@@ -182,7 +228,6 @@ const AddContact = ({onAdd}) => {
           value="France"
           onSubmit={onSubmit}
         />
-        <Coordinates />
       </View>
     </KeyboardAvoidingView>
   );
