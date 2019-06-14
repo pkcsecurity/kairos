@@ -58,7 +58,7 @@ const Pill = ({enabled, value, onPress}) => {
   );
 };
 
-const Contact = ({source, name, time, status}) => {
+const Contact = ({source, name, time, status, onYounis}) => {
   const progress = status => {
     switch (status) {
       case 'hungry':
@@ -73,30 +73,36 @@ const Contact = ({source, name, time, status}) => {
   };
 
   return (
-    <View style={{flexDirection: 'row', padding: 20}}>
-      <Image style={{height: 53, width: 53, borderRadius: 5}} source={source} />
-      <View
-        style={{
-          paddingVertical: 4,
-          paddingLeft: 15,
-          justifyContent: 'space-between',
-        }}>
-        <View>
-          <Text style={{fontWeight: '700', fontSize: 18}}>{name}</Text>
-          <Text>{time}</Text>
-        </View>
-        <ProgressViewIOS
-          style={{transform: [{scaleY: 2.5}], width: 150}}
-          progress={progress(status)}
-          progressTintColor={colors[status]}
-          trackTintColor="#f0f0f0"
+    <TouchableOpacity
+      onPress={() => (_.startsWith(name, 'Ghaalib') ? onYounis() : null)}>
+      <View style={{flexDirection: 'row', padding: 20}}>
+        <Image
+          style={{height: 53, width: 53, borderRadius: 5}}
+          source={source}
         />
+        <View
+          style={{
+            paddingVertical: 4,
+            paddingLeft: 15,
+            justifyContent: 'space-between',
+          }}>
+          <View>
+            <Text style={{fontWeight: '700', fontSize: 18}}>{name}</Text>
+            <Text>{time}</Text>
+          </View>
+          <ProgressViewIOS
+            style={{transform: [{scaleY: 2.5}], width: 150}}
+            progress={progress(status)}
+            progressTintColor={colors[status]}
+            trackTintColor="#f0f0f0"
+          />
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const Contacts = () => {
+const Contacts = ({onCreateNew, onYounis}) => {
   const [enabled, setEnabled] = useState('alphabetize');
 
   const pressHandler = s => () => setEnabled(s);
@@ -110,6 +116,15 @@ const Contacts = () => {
       case 'journey':
         return 'Curious';
     }
+  };
+
+  const transformContact = ({givenName, familyName}) => {
+    return {
+      name: `${givenName} ${familyName}`,
+      time: 'Today',
+      status: 'apathetic',
+      source: null,
+    };
   };
 
   const users = [
@@ -161,6 +176,12 @@ const Contacts = () => {
       status: 'hungry',
       source: require('./assets/contacts/Photo8.png'),
     },
+    {
+      name: 'Ghaalib Younis',
+      time: 'Last Week',
+      status: 'hungry',
+      source: require('./assets/contacts/Photo9.png'),
+    },
   ];
 
   const sort = (users, enabled) => {
@@ -200,7 +221,7 @@ const Contacts = () => {
 
   return (
     <View style={{flex: 1}}>
-      <FloatingButton />
+      <FloatingButton onPressPrimary={onCreateNew} />
       <Nav title="Contacts" sourceLeft={require('./assets/back.png')} />
       <OmniSearch />
       <View style={{flexDirection: 'row', marginHorizontal: 20}}>
@@ -229,6 +250,7 @@ const Contacts = () => {
               name={name}
               time={time}
               status={status}
+              onYounis={onYounis}
             />
           );
         })}

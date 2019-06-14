@@ -14,7 +14,7 @@ import {colors} from './Css';
 import * as _ from 'lodash';
 import {notify} from './Notify';
 
-const FloatingButton = ({onMic, onEdit, onCamera}) => {
+const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
   const styles = StyleSheet.create({
     container: {
       position: 'absolute',
@@ -105,7 +105,12 @@ const FloatingButton = ({onMic, onEdit, onCamera}) => {
       )}
       <TouchableOpacity
         style={styles.addButton}
-        onPress={() => setClicked(!clicked)}>
+        onPress={() => {
+          if (onPressPrimary) {
+            onPressPrimary();
+          }
+          setClicked(!clicked);
+        }}>
         <Text style={styles.text}>{clicked ? 'x' : '+'}</Text>
       </TouchableOpacity>
     </View>

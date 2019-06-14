@@ -19,10 +19,10 @@ import AddContact from './AddContact';
 import Contacts from './Contacts';
 import Profile from './Profile';
 import ContactSelector from './ContactSelector';
-
 import {RNCamera} from 'react-native-camera';
-import {AudioRecorder, AudioUtils} from 'react-native-audio';
+
 import {notify} from './Notify';
+import {position} from './Geolocation';
 
 import {PushNotificationIOS} from 'react-native';
 var PushNotification = require('react-native-push-notification');
@@ -112,9 +112,11 @@ const Camera = ({onTranscribed}) => {
         },
       );
       const text = await res.text();
+      const location = await position();
       onTranscribed({
         date: data.exif.DateTimeOriginal,
         text,
+        location,
         data: data.base64,
       });
     }
@@ -171,11 +173,16 @@ const App = () => {
     case 'messages':
       return <Messages onImport={() => setPage('selector')} />;
     case 'addContact':
-      return <AddContact />;
+      return <AddContact onAdd={() => setPage('contacts')} />;
     case 'contacts':
-      return <Contacts />;
+      return (
+        <Contacts
+          onYounis={() => setPage('profile')}
+          onCreateNew={() => setPage('addContact')}
+        />
+      );
     case 'selector':
-      return <ContactSelector onFinished={() => setPage('contacts')} />;
+      return <ContactSelector onFinished={contacts => setPage('contacts')} />;
     case 'profile':
       return (
         <Profile

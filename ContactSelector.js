@@ -72,7 +72,7 @@ const ContactSelector = ({onFinished}) => {
       <Nav
         title="Import Contacts"
         sourceLeft={require('./assets/back.png')}
-        onLeft={onFinished}
+        onLeft={() => onFinished()}
       />
       <View style={{padding: 20}}>
         <TextInput

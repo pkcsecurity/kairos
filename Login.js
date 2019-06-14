@@ -92,15 +92,6 @@ const LoginPage = ({onSubmit}) => {
   };
 
   const onSubmitWithFinished = () => {
-    const {geolocation} = navigator;
-    geolocation.requestAuthorization();
-    geolocation.getCurrentPosition(
-      x => console.log(x),
-      err => console.error(err),
-      {
-        enableHighAccuracy: true,
-      },
-    );
     setLoading(true);
     setTimeout(() => {
       setLoading(false);

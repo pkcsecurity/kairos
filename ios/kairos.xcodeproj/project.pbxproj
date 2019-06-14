@@ -50,6 +50,7 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		EE161BE122B32CC600C4BBF6 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE161BE022B32CC600C4BBF6 /* libRCTCameraRoll.a */; };
+		EE161CED22B39BD300C4BBF6 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = EE161CEC22B39BD300C4BBF6 /* icons */; };
 		FCB022F4924740C3B2DEE9AC /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F3BEA1094F4258ABCFB19F /* libRNAudio.a */; };
 /* End PBXBuildFile section */
 
@@ -476,6 +477,7 @@
 		EE161BE022B32CC600C4BBF6 /* libRCTCameraRoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTCameraRoll.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE161C9322B372CE00C4BBF6 /* ReactNativeBiometrics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeBiometrics.xcodeproj; path = "../node_modules/react-native-biometrics/ios/ReactNativeBiometrics.xcodeproj"; sourceTree = "<group>"; };
 		EE161CE422B3855600C4BBF6 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
+		EE161CEC22B39BD300C4BBF6 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../Downloads/foo/icons; sourceTree = "<group>"; };
 		F7C4C0FAA9BF432BB2EEAA01 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		FF739901A31746589570BEA4 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -629,6 +631,7 @@
 		13B07FAE1A68108700A75B9A /* kairos */ = {
 			isa = PBXGroup;
 			children = (
+				EE161CEC22B39BD300C4BBF6 /* icons */,
 				EE161A9C22B2ABEF00C4BBF6 /* kairos.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -1473,6 +1476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE161CED22B39BD300C4BBF6 /* icons in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
