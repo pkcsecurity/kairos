@@ -182,7 +182,7 @@ const Mic = () => {
 */
 
 const App = () => {
-  const [page, setPage] = useState('contacts');
+  const [page, setPage] = useState('addContact');
 
   useEffect(() => {
     PushNotification.configure({
