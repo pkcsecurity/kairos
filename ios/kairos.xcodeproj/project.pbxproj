@@ -45,6 +45,7 @@
 		E4867EA522E7412DAF763595 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244D700023E64C0686709C8F /* libRNSVG.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		EE161BE122B32CC600C4BBF6 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE161BE022B32CC600C4BBF6 /* libRCTCameraRoll.a */; };
 		FCB022F4924740C3B2DEE9AC /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F3BEA1094F4258ABCFB19F /* libRNAudio.a */; };
 /* End PBXBuildFile section */
 
@@ -413,6 +414,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EE161A9C22B2ABEF00C4BBF6 /* kairos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = kairos.entitlements; path = kairos/kairos.entitlements; sourceTree = "<group>"; };
+		EE161BE022B32CC600C4BBF6 /* libRCTCameraRoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTCameraRoll.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF739901A31746589570BEA4 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE161BE122B32CC600C4BBF6 /* libRCTCameraRoll.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
@@ -598,6 +601,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE161BE022B32CC600C4BBF6 /* libRCTCameraRoll.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,

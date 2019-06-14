@@ -10,7 +10,7 @@ const colors = {
   gold: '#cb973c',
   purple: '#5555ff',
   red: '#ed3415',
-  green: '#99c423',
+  green: '#46CF7B',
 
   curious: '#5555FF',
   hungry: '#46CF7B',

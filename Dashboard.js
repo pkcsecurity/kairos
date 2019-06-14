@@ -17,6 +17,8 @@ import {
   VictoryLine,
   VictoryPie,
 } from 'victory-native';
+import {notify} from './Notify';
+import Nav from './Nav';
 
 const DashboardChart = () => {
   const data = [
@@ -70,6 +72,11 @@ const DashboardChart = () => {
       </View>
       <View style={styles.pieContainer}>
         <VictoryPie
+          animate={{
+            duration: 2000,
+            onLoad: {duration: 1000},
+            easing: 'cubicInOut',
+          }}
           colorScale={pieColors}
           startAngle={240}
           endAngle={600}
@@ -131,41 +138,6 @@ const FloatingButton = () => {
   );
 };
 
-const Nav = () => {
-  const style = StyleSheet.create({
-    container: {
-      height: 100,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingTop: 20,
-      paddingLeft: 20,
-      paddingRight: 20,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: '700',
-      fontFamily: 'Avenir',
-    },
-    leftMenu: {
-      height: 20,
-      width: 20,
-    },
-    rightMenu: {
-      height: 10,
-      width: 30,
-    },
-  });
-
-  return (
-    <View style={style.container}>
-      <Image source={require('./assets/menu.png')} />
-      <Text style={style.title}>Dashboard</Text>
-      <Image source={require('./assets/more.png')} />
-    </View>
-  );
-};
-
 const ButtonContainer = () => {
   const styles = StyleSheet.create({
     container: {
@@ -203,7 +175,7 @@ const ButtonContainer = () => {
   );
 };
 
-const SparkRow = ({title, value}) => {
+const SparkRow = ({data, title, value, stroke, onPress}) => {
   const styles = StyleSheet.create({
     container: {
       height: 120,
@@ -211,37 +183,59 @@ const SparkRow = ({title, value}) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       flexDirection: 'row',
-      borderBottomColor: '#fafafa',
+      borderBottomColor: '#ddd',
       borderBottomWidth: 1,
+      zIndex: 1,
+    },
+    count: {
+      fontSize: 20,
+      fontWeight: '700',
+    },
+    subtitle: {
+      marginTop: 3,
+      fontSize: 12,
+      fontWeight: '700',
+      letterSpacing: 2,
+      textTransform: 'uppercase',
+      color: '#ddd',
     },
   });
 
-  const data = [
-    {x: 1, y: 2},
-    {x: 2, y: 3},
-    {x: 3, y: 5},
-    {x: 4, y: 4},
-    {x: 5, y: 7},
-  ];
   return (
-    <View style={styles.container}>
-      <View>
-        <Text>339</Text>
-        <Text>People</Text>
-      </View>
-      <View>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={{height: 40, width: 100}}>
         <VictoryLine
-          height={15}
+          padding={0}
+          height={40}
           width={100}
           data={data}
-          style={{data: {stroke: '#ff0000'}}}
+          animate={{
+            duration: 2000,
+            onload: {duration: 1000},
+            easing: 'cubicInOut',
+          }}
+          style={{data: {stroke, strokeWidth: 2}}}
+          events={[
+            {
+              target: 'parent',
+              eventHandlers: {
+                onClick: () => {
+                  onPress();
+                },
+              },
+            },
+          ]}
         />
       </View>
-    </View>
+      <View style={{flex: 1, alignItems: 'flex-end'}}>
+        <Text style={styles.count}>{value}</Text>
+        <Text style={styles.subtitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
-const Dashboard = () => {
+const Dashboard = ({onMenu}) => {
   const style = StyleSheet.create({
     container: {
       flex: 1,
@@ -257,16 +251,44 @@ const Dashboard = () => {
     },
   });
 
+  const peopleData = [
+    {x: 1, y: 2},
+    {x: 2, y: 3},
+    {x: 3, y: 5},
+    {x: 4, y: 4},
+    {x: 5, y: 7},
+  ];
+
+  const reviewData = [
+    {x: 1, y: 2},
+    {x: 2, y: 1},
+    {x: 3, y: 3},
+    {x: 4, y: 4},
+    {x: 5, y: 2},
+  ];
+
   return (
     <View style={style.container}>
-      <Nav />
+      <Nav onLeft={onMenu} onRight={onMenu} title="Dashboard" />
       <FloatingButton />
       <ScrollView style={style.body}>
         <DashboardChart />
         <View style={style.details}>
           <ButtonContainer />
-          <SparkRow title="People" value="339" />
-          <SparkRow title="Review" value="14" />
+          <SparkRow
+            data={peopleData}
+            title="People"
+            value="339"
+            stroke={colors.purple}
+            onPress={() => notify('people')}
+          />
+          <SparkRow
+            data={reviewData}
+            title="Review"
+            value="14"
+            stroke={colors.green}
+            onPress={() => notify('review')}
+          />
         </View>
       </ScrollView>
     </View>

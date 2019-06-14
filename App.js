@@ -11,17 +11,15 @@ import {
 } from 'react-native';
 import {colors} from './Css';
 import * as _ from 'lodash';
-import Toast from 'react-native-simple-toast';
 import LoginPage from './Login';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
+import Messages from './Messages';
+import AddContact from './AddContact';
 
 import {RNCamera} from 'react-native-camera';
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
-
-const notify = msg => {
-  Toast.showWithGravity(msg, Toast.SHORT, Toast.CENTER);
-};
+import {notify} from './Notify';
 
 const styles = StyleSheet.create({
   container: {
@@ -180,15 +178,19 @@ const Mic = () => {
 */
 
 const App = () => {
-  const [page, setPage] = useState('dash');
+  const [page, setPage] = useState('addContact');
   // return <LoginPage onSubmit={() => notify('logged in')} />;
   switch (page) {
     case 'landing':
       return <Landing onJoin={() => setPage('signup')} />;
     case 'signup':
-      return <LoginPage onSubmit={() => notify('done')} />;
+      return <LoginPage onSubmit={() => setPage('dash')} />;
     case 'dash':
-      return <Dashboard />;
+      return <Dashboard onMenu={() => setPage('messages')} />;
+    case 'messages':
+      return <Messages />;
+    case 'addContact':
+      return <AddContact />;
   }
 };
 
