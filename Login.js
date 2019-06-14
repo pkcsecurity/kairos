@@ -14,6 +14,7 @@ import {colors, gradients} from './Css';
 import * as _ from 'lodash';
 import Toast from 'react-native-simple-toast';
 import LinearGradient from 'react-native-linear-gradient';
+import Biometrics from 'react-native-biometrics';
 
 const LoginPage = ({onSubmit}) => {
   const ref = useRef(null);
@@ -89,6 +90,7 @@ const LoginPage = ({onSubmit}) => {
   const onNext = () => {
     ref.current.focus();
   };
+
   const onSubmitWithFinished = () => {
     const {geolocation} = navigator;
     geolocation.requestAuthorization();
@@ -105,6 +107,16 @@ const LoginPage = ({onSubmit}) => {
       onSubmit();
     }, 1000);
   };
+
+  useEffect(() => {
+    Biometrics.simplePrompt('Present your face').then(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        onSubmit();
+      }, 1000);
+    });
+  }, [onSubmit]);
 
   const Login = () => {
     return (

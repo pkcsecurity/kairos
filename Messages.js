@@ -61,8 +61,10 @@ const Row = ({icon, title}) => {
         flexDirection: 'row',
         alignItems: 'center',
       }}>
-      <View style={{width: 40, fontSize: 24, color: '#ddd', fontWeight: '700'}}>
-        <Text>{icon}</Text>
+      <View style={{width: 40}}>
+        <Text style={{fontSize: 24, color: '#ddd', fontWeight: '700'}}>
+          {icon}
+        </Text>
       </View>
       <View
         style={{
@@ -78,15 +80,15 @@ const Row = ({icon, title}) => {
   );
 };
 
-const Messages = () => {
+const Messages = ({onImport}) => {
   return (
     <View>
-      <View style={{height: 150, paddingLeft: 20, justifyContent: 'center'}}>
-        <Image
-          style={{height: 20, width: 20}}
-          source={require('./assets/back.png')}
-        />
-      </View>
+      <Nav
+        title="Messages"
+        sourceLeft={require('./assets/back.png')}
+        sourceRight={require('./assets/plus.png')}
+        onRight={onImport}
+      />
       <View style={{paddingHorizontal: 40}}>
         <View
           style={{

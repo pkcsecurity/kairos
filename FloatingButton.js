@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
+import Voice from 'react-native-voice';
 import {
   Button,
   Image,
@@ -13,7 +14,7 @@ import {colors} from './Css';
 import * as _ from 'lodash';
 import {notify} from './Notify';
 
-const FloatingButton = () => {
+const FloatingButton = ({onMic, onEdit, onCamera}) => {
   const styles = StyleSheet.create({
     container: {
       position: 'absolute',
@@ -33,7 +34,7 @@ const FloatingButton = () => {
       },
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
-
+      margin: 5,
       elevation: 5,
     },
     text: {
@@ -46,12 +47,66 @@ const FloatingButton = () => {
     },
   });
 
+  const [clicked, setClicked] = useState(false);
+
+  const Icon = ({source, onPress}) => {
+    return (
+      <TouchableOpacity style={styles.addButton} onPress={onPress}>
+        <Image style={{height: 60, width: 60}} source={source} />
+      </TouchableOpacity>
+    );
+  };
+
+  useEffect(() => {
+    Voice.onSpeechResults = ({value}) => onMic(value);
+  });
+
+  const [recording, setRecording] = useState(false);
+  const localeIdx = useRef(0);
+  const locales = ['en-US', 'zh-CN', 'es-MX', 'ar-JO'];
+
   return (
     <View style={styles.container}>
+      {clicked ? (
+        [
+          recording ? (
+            <Icon
+              onPress={() => {
+                Voice.stop();
+                setRecording(!recording);
+              }}
+              key="mic"
+              source={require('./assets/stop.png')}
+            />
+          ) : (
+            <Icon
+              onPress={() => {
+                Voice.start(locales[localeIdx.current]);
+                localeIdx.current++;
+                setRecording(!recording);
+              }}
+              key="mic"
+              source={require('./assets/icons/Mic.png')}
+            />
+          ),
+          <Icon
+            onPress={onEdit}
+            key="edit"
+            source={require('./assets/icons/TextEdit.png')}
+          />,
+          <Icon
+            onPress={onCamera}
+            key="camera"
+            source={require('./assets/icons/Camera.png')}
+          />,
+        ]
+      ) : (
+        <View />
+      )}
       <TouchableOpacity
         style={styles.addButton}
-        onPress={() => notify('hellyeah')}>
-        <Text style={styles.text}>+</Text>
+        onPress={() => setClicked(!clicked)}>
+        <Text style={styles.text}>{clicked ? 'x' : '+'}</Text>
       </TouchableOpacity>
     </View>
   );

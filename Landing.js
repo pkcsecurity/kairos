@@ -72,6 +72,7 @@ const Landing = ({onJoin}) => {
       textAlign: 'center',
     },
   });
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require('./assets/logo.png')} />
@@ -85,6 +86,4 @@ const Landing = ({onJoin}) => {
   );
 };
 
-module.exports = Landing;
-module.exports = Landing;
 module.exports = Landing;

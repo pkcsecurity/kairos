@@ -43,6 +43,8 @@
 	<string>I want to know where you live.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>I need your mic.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>I need to recognize your speech.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>I want to add stuff to your photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -65,5 +67,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSContactsUsageDescription</key>
+	<string>Give me your contacts.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Show me your face.</string>
 </dict>
 </plist>

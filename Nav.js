@@ -13,11 +13,11 @@ import {
 const Nav = ({title, sourceLeft, sourceRight, onLeft, onRight}) => {
   const style = StyleSheet.create({
     container: {
-      height: 130,
+      height: 100,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingTop: 20,
+      paddingTop: 30,
       paddingLeft: 20,
       paddingRight: 20,
     },

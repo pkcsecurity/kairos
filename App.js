@@ -17,6 +17,8 @@ import Dashboard from './Dashboard';
 import Messages from './Messages';
 import AddContact from './AddContact';
 import Contacts from './Contacts';
+import Profile from './Profile';
+import ContactSelector from './ContactSelector';
 
 import {RNCamera} from 'react-native-camera';
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
@@ -67,7 +69,7 @@ const Avatar = ({source}) => {
 
   return <Image style={style.avatar} source={source} />;
 };
-const Camera = () => {
+const Camera = ({onTranscribed}) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -95,9 +97,26 @@ const Camera = () => {
   takePicture = async () => {
     const camera = cameraRef.current;
     if (camera) {
-      const options = {quality: 0.5, exif: true};
+      const options = {quality: 0.5, exif: true, base64: true};
       const data = await camera.takePictureAsync(options);
-      console.log(data.uri);
+      const form = new FormData();
+
+      const res = await fetch(
+        'https://salty-stream-67702.herokuapp.com/upload',
+        {
+          body: JSON.stringify({base64: data.base64}),
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      const text = await res.text();
+      onTranscribed({
+        date: data.exif.DateTimeOriginal,
+        text,
+        data: data.base64,
+      });
     }
   };
 
@@ -118,92 +137,29 @@ const Camera = () => {
   );
 };
 
-/*
-const Mic = () => {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: 'black',
-    },
-    preview: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    capture: {
-      flex: 0,
-      backgroundColor: '#fff',
-      borderRadius: 5,
-      padding: 15,
-      paddingHorizontal: 20,
-      alignSelf: 'center',
-      margin: 20,
-    },
-  });
+PushNotification.configure({
+  onRegister: function(token) {
+    console.log('TOKEN:', token);
+  },
+  onNotification: function(notification) {
+    console.log('NOTIFICATION:', notification);
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
+  },
 
-  const audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
+  permissions: {
+    alert: true,
+    badge: true,
+    sound: true,
+  },
 
-  const startAudio = async () => {
-    AudioRecorder.prepareRecordingAtPath(audioPath, {
-      SampleRate: 22050,
-      Channels: 1,
-      AudioQuality: 'Low',
-      AudioEncoding: 'aac',
-      AudioEncodingBitRate: 32000,
-    });
-
-    await AudioRecorder.startRecording();
-  };
-
-  const endAudio = async () => {
-    const filePath = await AudioRecorder.stopRecording();
-    console.log(AudioRecorder.stopRecording);
-    console.log('\n\n\n\n\n' + filePath);
-  };
-
-  useEffect(() => {
-    AudioRecorder.requestAuthorization();
-  });
-
-  return (
-    <View style={styles.container}>
-      <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
-        <TouchableOpacity
-          onPressIn={startAudio}
-          onPressOut={endAudio}
-          style={styles.capture}>
-          <Text style={{fontSize: 14}}> SNAP </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
-*/
+  popInitialNotification: true,
+  requestPermissions: true,
+});
 
 const App = () => {
-  const [page, setPage] = useState('contacts');
-
-  useEffect(() => {
-    PushNotification.configure({
-      onRegister: function(token) {
-        console.log('TOKEN:', token);
-      },
-      onNotification: function(notification) {
-        console.log('NOTIFICATION:', notification);
-        notification.finish(PushNotificationIOS.FetchResult.NoData);
-      },
-
-      permissions: {
-        alert: true,
-        badge: true,
-        sound: true,
-      },
-
-      popInitialNotification: true,
-      requestPermissions: true,
-    });
-  });
+  const [page, setPage] = useState('landing');
+  const [photo, setPhoto] = useState({});
+  const [mic, setMic] = useState('');
 
   switch (page) {
     case 'landing':
@@ -213,11 +169,31 @@ const App = () => {
     case 'dash':
       return <Dashboard onMenu={() => setPage('messages')} />;
     case 'messages':
-      return <Messages />;
+      return <Messages onImport={() => setPage('selector')} />;
     case 'addContact':
       return <AddContact />;
     case 'contacts':
       return <Contacts />;
+    case 'selector':
+      return <ContactSelector onFinished={() => setPage('contacts')} />;
+    case 'profile':
+      return (
+        <Profile
+          photo={photo}
+          onCamera={() => setPage('camera')}
+          mic={mic}
+          onMic={t => setMic(t[0])}
+        />
+      );
+    case 'camera':
+      return (
+        <Camera
+          onTranscribed={ph => {
+            setPage('profile');
+            setPhoto(ph);
+          }}
+        />
+      );
   }
 };
 
