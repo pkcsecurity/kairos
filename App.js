@@ -21,6 +21,9 @@ import {RNCamera} from 'react-native-camera';
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
 import {notify} from './Notify';
 
+import {PushNotificationIOS} from 'react-native';
+var PushNotification = require('react-native-push-notification');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -179,6 +182,25 @@ const Mic = () => {
 
 const App = () => {
   const [page, setPage] = useState('addContact');
+  PushNotification.configure({
+    onRegister: function(token) {
+      console.log('TOKEN:', token);
+    },
+    onNotification: function(notification) {
+      console.log('NOTIFICATION:', notification);
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
+    },
+
+    permissions: {
+      alert: true,
+      badge: true,
+      sound: true,
+    },
+
+    popInitialNotification: true,
+    requestPermissions: true,
+  });
+
   // return <LoginPage onSubmit={() => notify('logged in')} />;
   switch (page) {
     case 'landing':
