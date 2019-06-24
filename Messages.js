@@ -33,9 +33,9 @@ const SubRow = ({color, title, value}) => {
         }}>
         <View
           style={{
-            height: 6,
-            width: 6,
-            borderRadius: 3,
+            height: 8,
+            width: 8,
+            borderRadius: 8,
             backgroundColor: color,
             marginRight: 20,
           }}
@@ -46,8 +46,8 @@ const SubRow = ({color, title, value}) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Text style={{fontSize: 20}}>{title}</Text>
-          <Text style={{fontSize: 20}}>{value}</Text>
+          <Text style={{fontSize: 15, fontWeight: 100}}>{title}</Text>
+          <Text style={{fontSize: 15, fontWeight: 100}}>{value}</Text>
         </View>
       </View>
     </View>
@@ -74,7 +74,7 @@ const Row = ({icon, title}) => {
           borderBottomRadius: 1,
           paddingVertical: 25,
         }}>
-        <Text style={{fontSize: 22, fontWeight: '700'}}>{title}</Text>
+        <Text style={{fontSize: 15, fontWeight: '700'}}>{title}</Text>
       </View>
     </View>
   );
@@ -84,7 +84,7 @@ const Messages = ({onBack, onImport}) => {
   return (
     <View>
       <Nav
-        title="Messages"
+        title=""
         sourceLeft={require('./assets/back.png')}
         sourceRight={require('./assets/plus.png')}
         onLeft={onBack}
@@ -94,13 +94,15 @@ const Messages = ({onBack, onImport}) => {
         <View
           style={{
             paddingLeft: 40,
+            marginTop: 20,
+            marginBottom: 40,
             flexDirection: 'row',
             alignItems: 'flex-end',
           }}>
           <Image
-            height={100}
-            width={100}
-            style={{height: 100, width: 100, borderRadius: 5}}
+            height={80}
+            width={80}
+            style={{height: 80, width: 80, borderRadius: 5}}
             source={require('./assets/avatars/2.jpg')}
           />
           <View style={{paddingLeft: 20, paddingBottom: 10}}>

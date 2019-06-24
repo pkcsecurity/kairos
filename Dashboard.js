@@ -50,11 +50,12 @@ const DashboardChart = () => {
     centerTitle: {
       textTransform: 'uppercase',
       letterSpacing: 2,
-      color: '#f0f0f0',
+      fontSize: 10,
+      color: '#BBBCCD',
     },
     centerNumber: {
       fontWeight: '700',
-      fontSize: 24,
+      fontSize: 34,
       marginTop: 20,
       marginBottom: 30,
       fontFamily: 'Avenir',
@@ -107,16 +108,19 @@ const ButtonContainer = () => {
     button: {
       color: colors.purple,
       textTransform: 'uppercase',
+      fontSize: 10,
       letterSpacing: 1,
     },
 
     buttonContainer: {
       borderBottomColor: colors.purple,
-      borderBottomWidth: 2,
+      borderBottomWidth: 3,
+      height: 20,
     },
 
     buttonInactive: {
       color: '#aaa',
+      fontSize: 10,
       textTransform: 'uppercase',
       letterSpacing: 1,
     },

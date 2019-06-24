@@ -48,7 +48,7 @@ const Landing = ({onJoin}) => {
     },
 
     title: {
-      color: colors.black,
+      color: '#2A2A30',
       fontSize: 60,
       fontWeight: '700',
       textTransform: 'lowercase',
@@ -62,7 +62,7 @@ const Landing = ({onJoin}) => {
     },
     opacity: {
       marginTop: 30,
-      backgroundColor: '#3023AE',
+      backgroundColor: '#5757ff',
       padding: 20,
       borderRadius: 6,
       width: '40%',
@@ -78,7 +78,7 @@ const Landing = ({onJoin}) => {
       <Image style={styles.logo} source={require('./assets/logo.png')} />
       <Text style={styles.subtitle}>Get Organized</Text>
       <Text style={styles.title}>kairos</Text>
-      <Text style={styles.byline}>All your data in one simple place.</Text>
+      <Text style={styles.byline}>The right moment kept.</Text>
       <TouchableOpacity onPress={onJoin} style={styles.opacity}>
         <Text style={styles.opacityText}>Join us</Text>
       </TouchableOpacity>

@@ -19,7 +19,7 @@ const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
     container: {
       position: 'absolute',
       zIndex: 1,
-      bottom: 50,
+      bottom: 36,
       left: '42%',
     },
     addButton: {
