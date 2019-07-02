@@ -52,10 +52,10 @@ const LoginPage = ({onSubmit}) => {
       width: '100%',
       padding: 20,
       paddingTop: 23,
-      letterSpacing: 1,
-      marginTop: 5,
+      paddingLeft: 30,
+      marginTop: 15,
       marginBottom: 5,
-      fontSize: 12,
+      fontSize: 13,
       borderRadius: 5,
       textTransform: 'uppercase',
     },
@@ -74,17 +74,26 @@ const LoginPage = ({onSubmit}) => {
       fontWeight: '700',
       fontSize: 12,
     },
+    underline: {
+      position: 'absolute',
+      top: 43,
+      height: 5,
+      width: 52,
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
     continue: {
       fontSize: 20,
       width: '100%',
       backgroundColor: '#fff',
       borderRadius: 5,
       padding: 20,
-      marginTop: 50,
+      marginTop: 100,
     },
     continueText: {
       textAlign: 'center',
       fontWeight: '700',
+      fontSize: 16,
       color: colors.pri,
     },
   });
@@ -121,12 +130,13 @@ const LoginPage = ({onSubmit}) => {
           />
           <View style={styles.buttons}>
             <Text style={styles.button}>Sign In</Text>
+            <View style={styles.underline}></View>
             <Text style={styles.button}>Sign Up</Text>
           </View>
           <TextInput
             onSubmitEditing={onNext}
             style={styles.input}
-            placeholder="USERNAME"
+            placeholder="EMAIL"
             type="email"
             keyboardType="email-address"
             placeholderTextColor="#ddd"

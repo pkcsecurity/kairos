@@ -30,6 +30,11 @@ const Nav = ({title, sourceLeft, sourceRight, onLeft, onRight}) => {
       height: 30,
       width: 30,
     },
+    buttonTwo: {
+      height: 30,
+      width: 30,
+      marginTop: 20,
+    },
   });
 
   const sourceLeftOpt = sourceLeft || require('./assets/menu.png');
@@ -40,7 +45,7 @@ const Nav = ({title, sourceLeft, sourceRight, onLeft, onRight}) => {
         <Image source={sourceLeftOpt} />
       </TouchableOpacity>
       <Text style={style.title}>{title}</Text>
-      <TouchableOpacity style={style.button} onPress={onRight}>
+      <TouchableOpacity style={style.buttonTwo} onPress={onRight}>
         <Image source={sourceRightOpt} />
       </TouchableOpacity>
     </View>

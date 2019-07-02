@@ -19,10 +19,14 @@ const OmniSearch = () => {
   return (
     <TextInput
       style={{
-        backgroundColor: 'rgba(0,0,0,0.1)',
-        borderRadius: 5,
-        height: 40,
-        lineHeight: 40,
+        backgroundColor: '#f4f4f4',
+        borderRadius: 0,
+        height: 65,
+        lineHeight: 65,
+        width: '100%',
+        marginLeft: 0,
+        paddingLeft: 50,
+        marginBottom: 15,
         paddingHorizontal: 10,
         marginHorizontal: 20,
       }}
@@ -35,20 +39,22 @@ const Pill = ({enabled, value, onPress}) => {
     <TouchableOpacity onPress={onPress}>
       <View
         style={{
-          backgroundColor: enabled ? colors.purple : colors.white,
-          borderWidth: 2,
+          borderBottomWidth: 2,
           marginTop: 10,
-          marginRight: 5,
-          borderRadius: 5,
-          borderColor: enabled ? colors.purple : '#f0f0f0',
+          marginRight: 35,
+          marginLeft: 0,
+          marginBottom: 15,
+          borderRadius: 0,
+          borderColor: enabled ? colors.purple : '#ffffff',
           height: 27,
-          width: 80,
         }}>
         <Text
           style={{
-            color: enabled ? colors.white : colors.black,
-            fontSize: 12,
-            textAlign: 'center',
+            color: enabled ? colors.purple : '#bbbccd',
+            fontSize: 11,
+            letterSpacing: 1,
+            textAlign: 'left',
+            textTransform: 'uppercase',
             lineHeight: 24,
           }}>
           {value}
@@ -75,9 +81,9 @@ const Contact = ({source, name, time, status, onYounis}) => {
   return (
     <TouchableOpacity
       onPress={() => (_.startsWith(name, 'Ghaalib') ? onYounis() : null)}>
-      <View style={{flexDirection: 'row', padding: 20}}>
+      <View style={{flexDirection: 'row', padding: 10}}>
         <Image
-          style={{height: 53, width: 53, borderRadius: 5}}
+          style={{height: 53, width: 53, borderRadius: 3, marginLeft: 10, marginRight: 10}}
           source={source}
         />
         <View
@@ -87,11 +93,11 @@ const Contact = ({source, name, time, status, onYounis}) => {
             justifyContent: 'space-between',
           }}>
           <View>
-            <Text style={{fontWeight: '700', fontSize: 18}}>{name}</Text>
-            <Text>{time}</Text>
+            <Text style={{color: '#2A2A30', fontWeight: '300', fontSize: 18, marginBottom: 4, marginTop: -6}}>{name}</Text>
+            <Text style={{color: '#828393', fontWeight: '100', fontSize: 12}}>{time}</Text>
           </View>
           <ProgressViewIOS
-            style={{transform: [{scaleY: 2.5}], width: 150}}
+            style={{transform: [{scaleY: 2.5}], marginTop: 10, width: 150}}
             progress={progress(status)}
             progressTintColor={colors[status]}
             trackTintColor="#f0f0f0"
@@ -109,11 +115,13 @@ const Contacts = ({onBack, onCreateNew, onYounis}) => {
 
   const pickTitle = state => {
     switch (enabled) {
+      case 'all':
+        return 'A';
       case 'alphabetize':
         return 'A';
       case 'status':
         return 'This Week';
-      case 'journey':
+      case 'review':
         return 'Curious';
     }
   };
@@ -203,7 +211,7 @@ const Contacts = ({onBack, onCreateNew, onYounis}) => {
               return 4;
           }
         });
-      case 'journey':
+      case 'review':
         return _.sortBy(users, ({status}) => {
           switch (status) {
             case 'hungry':
@@ -228,7 +236,13 @@ const Contacts = ({onBack, onCreateNew, onYounis}) => {
         sourceLeft={require('./assets/back.png')}
       />
       <OmniSearch />
+      <Image style={{height: 17, width: 17, position: 'absolute', top: 123, marginLeft: 20}} source={require('./assets/search.png')} />
       <View style={{flexDirection: 'row', marginHorizontal: 20}}>
+        <Pill
+          value="all"
+          enabled={enabled === 'all'}
+          onPress={pressHandler('all')}
+        />
         <Pill
           value="alphabetize"
           enabled={enabled === 'alphabetize'}
@@ -240,10 +254,13 @@ const Contacts = ({onBack, onCreateNew, onYounis}) => {
           onPress={pressHandler('status')}
         />
         <Pill
-          value="journey"
-          enabled={enabled === 'journey'}
-          onPress={pressHandler('journey')}
+          value="review"
+          enabled={enabled === 'review'}
+          onPress={pressHandler('review')}
         />
+      </View>
+      <View>
+        <Text style={{marginBottom: 10, marginLeft: 20, color: '#2A2A30', fontWeight: '700', fontSize: 20}}>A</Text>
       </View>
       <ScrollView style={{flex: 1, marginTop: 5}}>
         {_.map(sort(users, enabled), ({name, time, status, source}) => {

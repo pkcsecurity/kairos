@@ -34,12 +34,12 @@ const ContactRow = ({
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 30,
+        paddingVertical: 25,
         borderBottomWidth: 1,
-        borderBottomColor: '#eee',
+        borderBottomColor: '#e7e7f0',
       }}>
       <View style={{flex: 3}}>
-        <Text style={{fontSize: 20, color: disabled ? '#aaa' : 'black'}}>
+        <Text style={{fontSize: 18, color: '#2a2a30'}}>
           {name}
         </Text>
       </View>
@@ -51,7 +51,7 @@ const ContactRow = ({
           returnKeyType={nextRef ? 'next' : 'done'}
           ref={thisRef}
           autoCorrect={false}
-          style={{height: 30, fontSize: 20, color: disabled ? '#aaa' : 'black'}}
+          style={{height: 30, fontSize: 18, color: '#2a2a30'}}
           value={input}
           onChangeText={t => {
             setInput(t);
@@ -86,7 +86,7 @@ const Coordinates = () => {
         borderBottomColor: '#eee',
       }}>
       <View style={{flex: 3}}>
-        <Text style={{fontSize: 20, color: '#aaa'}}>Location</Text>
+        <Text style={{fontSize: 20, color: '#2a2a30'}}>Location</Text>
       </View>
       <View style={{flex: 7}}>
         <Text style={{color: '#aaa'}}>
@@ -170,7 +170,7 @@ const AddContact = ({onAdd}) => {
       />
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Image
-          style={{height: 125, width: 125, borderRadius: 8}}
+          style={{height: 125, width: 125, borderRadius: 8, marginTop: 25, marginBottom: 10}}
           source={
             photo
               ? {uri: photo.node.image.uri}
@@ -178,7 +178,7 @@ const AddContact = ({onAdd}) => {
           }
         />
         <TouchableOpacity
-          style={{position: 'absolute', top: 105}}
+          style={{position: 'absolute', top: 133}}
           onPress={onPress}>
           <Image source={require('./assets/edit.png')} />
         </TouchableOpacity>
@@ -186,10 +186,10 @@ const AddContact = ({onAdd}) => {
       <View style={{padding: 20, paddingTop: 40}}>
         <Text
           style={{
-            fontSize: 14,
+            fontSize: 10,
             textTransform: 'uppercase',
-            letterSpacing: 2,
-            color: '#ddd',
+            letterSpacing: 1,
+            color: '#bbbccd',
           }}>
           Contact
         </Text>

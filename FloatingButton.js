@@ -23,8 +23,8 @@ const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
       left: '42%',
     },
     addButton: {
-      width: 60,
-      height: 60,
+      width: 50,
+      height: 50,
       borderRadius: 30,
       backgroundColor: colors.purple,
       shadowColor: '#000',
@@ -38,12 +38,12 @@ const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
       elevation: 5,
     },
     text: {
-      height: 60,
-      width: 60,
-      lineHeight: 55,
+      height: 50,
+      width: 50,
+      lineHeight: 44,
       textAlign: 'center',
       color: colors.white,
-      fontSize: 25,
+      fontSize: 33,
     },
   });
 
@@ -52,7 +52,7 @@ const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
   const Icon = ({source, onPress}) => {
     return (
       <TouchableOpacity style={styles.addButton} onPress={onPress}>
-        <Image style={{height: 60, width: 60}} source={source} />
+        <Image style={{height: 45, width: 45, marginLeft: 2, marginTop: 2}} source={source} />
       </TouchableOpacity>
     );
   };
@@ -111,7 +111,7 @@ const FloatingButton = ({onMic, onEdit, onCamera, onPressPrimary}) => {
           }
           setClicked(!clicked);
         }}>
-        <Text style={styles.text}>{clicked ? 'x' : '+'}</Text>
+        <Text style={styles.text}>{clicked ? '-' : '+'}</Text>
       </TouchableOpacity>
     </View>
   );

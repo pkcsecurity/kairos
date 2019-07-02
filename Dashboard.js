@@ -23,10 +23,10 @@ import FloatingButton from './FloatingButton';
 
 const DashboardChart = () => {
   const data = [
-    {x: 'CURIOUS', y: 35},
-    {x: 'HUNGRY', y: 35},
-    {x: 'HOSTILE', y: 10},
-    {x: 'APATHETIC', y: 20},
+    {x: '', y: 35},
+    {x: '', y: 35},
+    {x: '', y: 10},
+    {x: '', y: 20},
   ];
 
   const pieColors = [
@@ -50,13 +50,13 @@ const DashboardChart = () => {
     centerTitle: {
       textTransform: 'uppercase',
       letterSpacing: 2,
-      fontSize: 10,
+      fontSize: 13,
       color: '#BBBCCD',
     },
     centerNumber: {
       fontWeight: '700',
-      fontSize: 34,
-      marginTop: 20,
+      fontSize: 40,
+      marginTop: 5,
       marginBottom: 30,
       fontFamily: 'Avenir',
     },
@@ -89,7 +89,7 @@ const DashboardChart = () => {
           padAngle={3}
           labels={d => d.x}
           labelRadius={150}
-          labelComponent={<VictoryLabel style={{fontSize: 10, fill: '#aaa'}} />}
+          labelComponent={<VictoryLabel style={{fontSize: 10, fill: '#bbbccd'}} />}
         />
       </View>
     </View>
@@ -108,7 +108,7 @@ const ButtonContainer = () => {
     button: {
       color: colors.purple,
       textTransform: 'uppercase',
-      fontSize: 10,
+      fontSize: 11,
       letterSpacing: 1,
     },
 
@@ -116,11 +116,23 @@ const ButtonContainer = () => {
       borderBottomColor: colors.purple,
       borderBottomWidth: 3,
       height: 20,
+      width: 64,
     },
 
     buttonInactive: {
-      color: '#aaa',
-      fontSize: 10,
+      marginRight: 35,
+      color: '#bbbccd',
+      fontSize: 12,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+    },
+
+    buttonPlus: {
+      position: 'absolute',
+      top: -12,
+      right: 0,
+      color: '#bbbccd',
+      fontSize: 38,
       textTransform: 'uppercase',
       letterSpacing: 1,
     },
@@ -131,7 +143,8 @@ const ButtonContainer = () => {
       <View style={styles.buttonContainer}>
         <Text style={styles.button}>Overview</Text>
       </View>
-      <Text style={styles.buttonInactive}>More +</Text>
+      <Text style={styles.buttonInactive}>More</Text>
+      <Text style={styles.buttonPlus}>+</Text>
     </View>
   );
 };
@@ -144,7 +157,7 @@ const SparkRow = ({data, title, value, stroke, onPress}) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       flexDirection: 'row',
-      borderBottomColor: '#ddd',
+      borderBottomColor: '#e7e7f0',
       borderBottomWidth: 1,
       zIndex: 1,
     },
@@ -158,13 +171,24 @@ const SparkRow = ({data, title, value, stroke, onPress}) => {
       fontWeight: '700',
       letterSpacing: 2,
       textTransform: 'uppercase',
-      color: '#ddd',
+      color: '#bbbccd',
+    },
+    containBlock: {
+      position: 'absolute',
+      left: 0,
+    },
+    containLines: {
+      position: 'absolute',
+      left: '50%',
+      marginLeft: 50,
+      height: 40,
+      width: 100,
     },
   });
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={{height: 40, width: 100}}>
+      <View style={styles.containLines}>
         <VictoryLine
           padding={0}
           height={40}
@@ -188,7 +212,7 @@ const SparkRow = ({data, title, value, stroke, onPress}) => {
           ]}
         />
       </View>
-      <View style={{flex: 1, alignItems: 'flex-end'}}>
+      <View style={styles.containBlock}>
         <Text style={styles.count}>{value}</Text>
         <Text style={styles.subtitle}>{title}</Text>
       </View>

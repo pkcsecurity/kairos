@@ -165,20 +165,20 @@ const App = () => {
 
   switch (page) {
     case 'landing':
-      return <Landing onJoin={() => setPage('signup')} />;
-    case 'signup':
-      return <LoginPage onSubmit={() => setPage('dash')} />;
-    case 'dash':
+      return <Landing onJoin={() => setPage('login')} />;
+    case 'login':
+      return <LoginPage onSubmit={() => setPage('dashboard')} />;
+    case 'dashboard':
       return (
         <Dashboard
           onPeople={() => setPage('contacts')}
-          onMenu={() => setPage('messages')}
+          onMenu={() => setPage('menu')}
         />
       );
-    case 'messages':
+    case 'menu':
       return (
         <Messages
-          onBack={() => setPage('dash')}
+          onBack={() => setPage('dashboard')}
           onImport={() => setPage('selector')}
         />
       );
@@ -187,7 +187,7 @@ const App = () => {
     case 'contacts':
       return (
         <Contacts
-          onBack={() => setPage('dash')}
+          onBack={() => setPage('dashboard')}
           onYounis={() => setPage('profile')}
           onCreateNew={() => setPage('addContact')}
         />

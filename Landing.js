@@ -25,9 +25,9 @@ const Landing = ({onJoin}) => {
       lineHeight: 34,
     },
     logo: {
-      width: 250,
-      height: 250,
-      marginBottom: 30,
+      width: 180,
+      height: 180,
+      marginBottom: 100,
     },
     input: {
       backgroundColor: '#fafafa',
@@ -49,19 +49,19 @@ const Landing = ({onJoin}) => {
 
     title: {
       color: '#2A2A30',
-      fontSize: 60,
+      fontSize: 70,
       fontWeight: '700',
       textTransform: 'lowercase',
       paddingTop: 5,
       paddingBottom: 5,
     },
     byline: {
-      color: '#333',
+      color: '#828393',
       paddingTop: 15,
       paddingBottom: 10,
     },
     opacity: {
-      marginTop: 30,
+      marginTop: 100,
       backgroundColor: '#5757ff',
       padding: 20,
       borderRadius: 6,
@@ -69,6 +69,8 @@ const Landing = ({onJoin}) => {
     },
     opacityText: {
       color: colors.white,
+      fontSize: 17,
+      fontWeight: 'bold',
       textAlign: 'center',
     },
   });

@@ -16,6 +16,8 @@ const colors = {
   hungry: '#46CF7B',
   hostile: '#565656',
   apathetic: '#BBBCCD',
+
+  curiousGradient: 'linear-gradient(90deg, rgba(151,134,255,1) 0%, rgba(86,86,255,1) 100%)',
 };
 
 const gradients = {

@@ -27,15 +27,15 @@ const SubRow = ({color, title, value}) => {
           borderBottomWidth: 1,
           borderBottomColor: '#ddd',
           borderBottomRadius: 1,
-          paddingVertical: 25,
+          paddingVertical: 20,
           alignItems: 'center',
           flexDirection: 'row',
         }}>
         <View
           style={{
-            height: 8,
-            width: 8,
-            borderRadius: 8,
+            height: 9,
+            width: 9,
+            borderRadius: 9,
             backgroundColor: color,
             marginRight: 20,
           }}
@@ -55,6 +55,14 @@ const SubRow = ({color, title, value}) => {
 };
 
 const Row = ({icon, title}) => {
+  const styles = StyleSheet.create({
+    row: {
+      flex: 1,
+      borderBottomWidth: 1,
+      borderBottomColor: '#ddd',
+      paddingVertical: 20,
+    },
+  });
   return (
     <View
       style={{
@@ -62,18 +70,11 @@ const Row = ({icon, title}) => {
         alignItems: 'center',
       }}>
       <View style={{width: 40}}>
-        <Text style={{fontSize: 24, color: '#ddd', fontWeight: '700'}}>
+        <Text style={{fontSize: 24, color: '#bbbccc', fontWeight: '700', lineHeight: 26, textAlign: 'center', width: 15}}>
           {icon}
         </Text>
       </View>
-      <View
-        style={{
-          flex: 1,
-          borderBottomWidth: 1,
-          borderBottomColor: '#ddd',
-          borderBottomRadius: 1,
-          paddingVertical: 25,
-        }}>
+      <View style={styles.row}>
         <Text style={{fontSize: 15, fontWeight: '700'}}>{title}</Text>
       </View>
     </View>
@@ -81,6 +82,16 @@ const Row = ({icon, title}) => {
 };
 
 const Messages = ({onBack, onImport}) => {
+  const styles = StyleSheet.create({
+    settings: {
+      flex: 1,
+      paddingVertical: 20,
+      fontSize: 15,
+      fontWeight: 'bold',
+      marginTop: 70,
+      marginLeft: 40,
+    },
+  });
   return (
     <View>
       <Nav
@@ -106,8 +117,8 @@ const Messages = ({onBack, onImport}) => {
             source={require('./assets/avatars/2.jpg')}
           />
           <View style={{paddingLeft: 20, paddingBottom: 10}}>
-            <Text style={{fontSize: 24, fontWeight: '700'}}>Katie</Text>
-            <Text style={{color: '#aaa'}}>Swenson</Text>
+            <Text style={{fontSize: 18, fontWeight: '700'}}>Katie</Text>
+            <Text style={{fontSize: 12, color: '#aaa'}}>Swenson</Text>
           </View>
         </View>
         <View>
@@ -118,6 +129,7 @@ const Messages = ({onBack, onImport}) => {
           <SubRow color={colors.apathetic} title="Apathetic" value="90" />
           <SubRow color={colors.hostile} title="Hostile" value="49" />
         </View>
+        <Text style={styles.settings}>Settings</Text>
       </View>
     </View>
   );
